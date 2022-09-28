@@ -1,0 +1,77 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "imageUrl": "https://image.ua.market/storage/640x640/c/5/9/2/c5929e3ddc70c89b456f71da85095242.jpg",
+      "name": "Orlando by Virginia Woolf",
+      "count": 20,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "200g",
+      "comments": []
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://image.ua.market/storage/640x640/f/d/2/2/fd226548e72ce3fb4b822e19598ef126.jpg",
+      "name": "Kiss the Girls and Make Them Cry by Mary Higgins Clark of",
+      "count": 13,
+      "size": {
+        "width": "167",
+        "height": "200"
+      },
+      "weight": "200",
+      "comments": []
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://image.ua.market/storage/640x640/5/4/9/7/54979fbb430c7433957a1dcf24184875.jpg",
+      "name": "Long Live The King: A Biography of Clark Gable by Lyn Tornabene",
+      "count": 22,
+      "size": {
+        "width": 190,
+        "height": 200
+      },
+      "weight": "205",
+      "comments": []
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://image.ua.market/storage/640x640/7/5/6/5/7565fc6768ab358e37d895f703d26d92.jpg",
+      "name": "Sieben Tage für die Ewigkeit - Marc Levy",
+      "count": 10,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "210g",
+      "comments": []
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://image.ua.market/storage/640x640/b/1/4/0/b14036aaf55db55bd94337873889335e.jpg",
+      "name": "The Tin Roof Blowdown by James Lee Burke",
+      "count": 15,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "150g",
+      "comments": []
+    },
+    {
+      "id": 6,
+      "imageUrl": "https://image.ua.market/storage/640x640/4/f/3/1/4f31add74ee467eb33e507dfc82d683b.jpg",
+      "name": "Rainbow Six by Tom Clancy",
+      "count": 12,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "190g",
+      "comments": []
+    }
+  ],
+  "comment": []
+}
