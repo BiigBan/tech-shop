@@ -27,10 +27,10 @@ export default function Main() {
     }, [])
 
 
-    if (status === 'pending' || status === null) {
-        return <div>loading</div>
-    }
-    else {
+    // if (status === 'pending' || status === null) {
+    //     return <div>loading</div>
+    // }
+    // else {
         return (
             <>
                 <Container>
@@ -44,5 +44,5 @@ export default function Main() {
                 <ModalInfo setOpen={setOpen} id={currentIdProduct} product={product} open={open}/>
             </>
         )
-    }
+    // }
 }

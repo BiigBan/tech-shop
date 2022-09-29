@@ -51,15 +51,19 @@ const productReducer = (state = initialState, action) => {
             }
         }
         case SET_COMMENT: {
+            debugger
             return {
                 ...state,
-                product: changeComments(action.comments, state.product),
-            }
-        }
-        case SET_COMMENT_UI: {
-            return {
-                ...state,
-                product: changeComments([action.comment], state.product),
+                product: state.product.map(el => {
+                    let array = []
+                    for (const iterator of action.comments) {
+                        if (el.id === iterator.productId) {
+                            array.push(iterator)
+                        }
+                    }
+                    el.comments = array;
+                    return el
+                }),
             }
         }
         case DELETE_MESSAGE: {
@@ -67,21 +71,11 @@ const productReducer = (state = initialState, action) => {
                 ...state,
                 product: [
                     ...state.product,
-                    {comments: state.product.map(el => el.comments.filter(item => item.id !== action.id)),
+                    {
+                        comments: state.product.map(el => el.comments.filter(item => item.id !== action.id)),
                         //1 Try to fix it
                     }
                 ],
-
-
-                // .map(item => {
-                //     return item.comments.filter(el => {
-                //         if (el.id !== action.id) {
-                //             return el
-                //         } else {
-                //             return false
-                //         }}) 
-                // })
-
             }
         }
         case SET_GOODS: {
@@ -102,7 +96,7 @@ const productReducer = (state = initialState, action) => {
                 ...state,
                 product: [
                     state.product.map(el => {
-                        if(el.id === action.id){
+                        if (el.id === action.id) {
                             el.imageUrl = action.imageUrl;
                             el.name = action.name;
                             el.count = action.count;
@@ -139,12 +133,10 @@ const removeGoodsFun = (goods, id) => {
 }
 
 const changeComments = (comments, product) => {
-    debugger
     for (const iterator of comments) {
         for (const prodId of product) {
             if (iterator.productId === prodId.id) {
                 prodId.comments.push(iterator)
-                console.log(prodId);
             }
         }
     }
@@ -180,8 +172,8 @@ export const removeGoods = (id) => {
     return { type: REMOVE_GOODS, id }
 }
 
-export const changeBooksAC = (id,imageUrl,name,count, size,comments, weight) => {
-    return {type: CHANGE_BOOK, id,imageUrl,name,count, size,comments, weight}
+export const changeBooksAC = (id, imageUrl, name, count, size, comments, weight) => {
+    return { type: CHANGE_BOOK, id, imageUrl, name, count, size, comments, weight }
 }
 
 export const postMessageAC = (id, productId, description, date) => {
@@ -215,13 +207,13 @@ export const getComments = () => async dispatch => {
 export const deleteMessage = (id, productId) => async dispatch => {
     const response = await apiProducts.deleteMessage(id);
     dispatch(deleteMessageAC(id, productId));
-    setCommentUI()
+    dispatch(getComments())
 
 }
 
 export const postMessage = (id, productId, description, date) => async dispatch => {
     const response = await apiProducts.postMessage(id, productId, description, date);
-    checkResult(response, dispatch, setCommentUI)
+    dispatch(getComments())
 }
 
 // export const changeBooks = (id,imageUrl,name,count, width, height,comments, weight) => async dispatch => {
