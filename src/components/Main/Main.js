@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getComments, getProducts } from '../../store/productReducer';
 import Card from './Card/Card';
 import ModalInfo from './ModalInfo/ModalInfo';
-import SelectComponent from './Select/Select';
-import Select from './Select/Select';
 
 export default function Main() {
 
@@ -34,7 +32,6 @@ export default function Main() {
         return (
             <>
                 <Container>
-                    {/* <SelectComponent/> */}
                     <Grid container spacing={2}>
                         {product.map(item => {
                             return <Card setCurrentIdProduct={setCurrentIdProduct} handleOpen={handleOpen} key={item.id} {...item} />

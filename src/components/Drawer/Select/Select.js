@@ -3,17 +3,16 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { getProducts } from '../../../store/productReducer';
 
-export default function SelectComponent() {
+export default function SelectComponent({setSortGoods}) {
     const [search, setSearch] = useState('');
 
-    const dispatch = useDispatch()
 
     const handleChange = (event) => {
         setSearch(event.target.value)
     };
 
     const select = () => {
-        dispatch(getProducts(search))
+        search === 'alphabet' ? setSortGoods('alphabet') : setSortGoods('count') 
     }
 
 
@@ -28,7 +27,7 @@ export default function SelectComponent() {
                     label="Search filter"
                     onChange={handleChange}
                 >
-                    <MenuItem value={'name'}>Alphabet</MenuItem>
+                    <MenuItem value={'alphabet'}>Alphabet</MenuItem>
                     <MenuItem value={'count'}>Count</MenuItem>
                 </Select>
                 <Button onClick={select}>Select</Button>

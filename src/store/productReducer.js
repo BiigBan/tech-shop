@@ -216,10 +216,4 @@ export const postMessage = (id, productId, description, date) => async dispatch 
     dispatch(getComments())
 }
 
-// export const changeBooks = (id,imageUrl,name,count, width, height,comments, weight) => async dispatch => {
-//     let size = {width, height}
-//     const response = await apiProducts.changeBook(id,imageUrl,name,count, size, weight);
-//     dispatch(changeBooksAC(id,imageUrl,name,count, size,comments, weight))
-//     dispatch(getProducts())
-// }
 export default productReducer;
