@@ -73,7 +73,6 @@ const productReducer = (state = initialState, action) => {
                     ...state.product,
                     {
                         comments: state.product.map(el => el.comments.filter(item => item.id !== action.id)),
-                        //1 Try to fix it
                     }
                 ],
             }
@@ -94,18 +93,16 @@ const productReducer = (state = initialState, action) => {
         case CHANGE_BOOK: {
             return {
                 ...state,
-                product: [
-                    state.product.map(el => {
+                selectedGoods: state.selectedGoods.map(el => {
                         if (el.id === action.id) {
-                            el.imageUrl = action.imageUrl;
                             el.name = action.name;
                             el.count = action.count;
-                            el.size = action.size;
-                            el.comments = action.comments;
+                            el.size.width = action.width;
+                            el.size.height = action.height;
                             el.weight = action.weight;
                         }
+                        return el
                     })
-                ]
             }
         }
 
@@ -113,15 +110,6 @@ const productReducer = (state = initialState, action) => {
             return state;
     }
 }
-
-// const deleteMessageFromStore = (id, productId, product) => {
-//     let newArr = []
-//     for (const item of product) {
-//         console.log(item);
-//         newArr = item.comments.filter(mes => mes.id === id ? false : true)
-//     }
-//     console.log(newArr);
-// }
 
 const removeGoodsFun = (goods, id) => {
     let arr = goods.filter((item) => {
@@ -172,8 +160,8 @@ export const removeGoods = (id) => {
     return { type: REMOVE_GOODS, id }
 }
 
-export const changeBooksAC = (id, imageUrl, name, count, size, comments, weight) => {
-    return { type: CHANGE_BOOK, id, imageUrl, name, count, size, comments, weight }
+export const changeBooksAC = (id, imageUrl, name, count, width,height, weight) => {
+    return { type: CHANGE_BOOK, id, imageUrl, name, count, width,height, weight }
 }
 
 export const postMessageAC = (id, productId, description, date) => {

@@ -66,7 +66,7 @@ export default function DrawerComponent({ cartOpen, closeCart }) {
                 <SelectComponent setSortGoods={setSortGoods} />
             </Drawer >
             <ModalAccept setCurrentId={setCurrentId} setConfirmed={setConfirmed} setShowModal={setShowModal} showModal={showModal} />
-            {/* <ModalChange setChangeModal={setChangeModal} changeModal={changeModal} currentItem={currentItem}/> */}
+            <ModalChange setChangeModal={setChangeModal} changeModal={changeModal} currentItem={currentItem}/>
         </>
     )
 }
