@@ -73,12 +73,5 @@
       "comments": []
     }
   ],
-  "comment": [
-    {
-      "id": 6,
-      "productId": 1,
-      "description": "asda",
-      "date": "17:27:23 29.09.2022"
-    }
-  ]
+  "comment": []
 }

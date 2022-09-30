@@ -66,17 +66,6 @@ const productReducer = (state = initialState, action) => {
                 }),
             }
         }
-        case DELETE_MESSAGE: {
-            return {
-                ...state,
-                product: [
-                    ...state.product,
-                    {
-                        comments: state.product.map(el => el.comments.filter(item => item.id !== action.id)),
-                    }
-                ],
-            }
-        }
         case SET_GOODS: {
             return {
                 ...state,
@@ -194,7 +183,6 @@ export const getComments = () => async dispatch => {
 
 export const deleteMessage = (id, productId) => async dispatch => {
     const response = await apiProducts.deleteMessage(id);
-    dispatch(deleteMessageAC(id, productId));
     dispatch(getComments())
 
 }
